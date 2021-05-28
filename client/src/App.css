@@ -31,3 +31,14 @@
 .submit_form_btn:hover {
 	cursor: pointer !important;
 }
+
+#editMarks {
+	margin-left: 10px;
+	margin-right: 0px;
+	width: 40px;
+}
+
+.hidden_btn {
+	background: transparent !important;
+	border: none !important;
+}

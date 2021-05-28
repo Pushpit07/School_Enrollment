@@ -49,6 +49,43 @@ app.get('/students', (req, res) => {
     });
 });
 
+app.put('/update', (req, res) => {
+    const id = req.body.id;
+    const marks = req.body.marks;
+
+    db.query('UPDATE Students SET marks = ? WHERE  id = ?', [marks, id], (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.delete('/delete/:id', (req, res) => {
+    const id = req.params.id;
+
+    db.query('DELETE FROM Students WHERE id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
+app.get('/student/:id', (req, res) => {
+    const id = req.params.id;
+
+    db.query('SELECT * FROM Students WHERE  id = ?', id, (err, result) => {
+        if (err) {
+            console.log(err);
+        } else {
+            res.send(result);
+        }
+    });
+});
+
 app.listen(3001, () => {
-    console.log('Running here noww!');
+    console.log('Running now!');
 });

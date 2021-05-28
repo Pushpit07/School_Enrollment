@@ -2,6 +2,8 @@ import React, { Fragment } from 'react';
 import { useState, useEffect } from 'react';
 import { Link } from "react-router-dom";
 import axios from 'axios';
+import $ from 'jquery';
+import 'datatables.net';
 
 function Main() {
     const [studentList, setStudentList] = useState([]);
@@ -42,6 +44,11 @@ function Main() {
         getStudents();
     }, []);
 
+
+    $(document).ready(function () {
+        $('#studentTable').dataTable();
+    });
+
     return (
         <Fragment>
             <div className="row">
@@ -51,7 +58,7 @@ function Main() {
             </div>
             <div className="row m-5">
                 <div className="col-12">
-                    <table className="table table-lg table-hover">
+                    <table className="table table-lg table-hover" id="studentTable">
                         <thead className="thead-dark">
                             <tr>
                                 <th scope="col">S.No.</th>

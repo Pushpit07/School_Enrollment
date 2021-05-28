@@ -70,26 +70,26 @@ function Form() {
                                 <label>Address : </label>
                                 <input type="text" onChange={(event) => { setAddress(event.target.value) }} required />
                             </div>
-                            <div className="col-3">
+                            <div className="col-2">
                                 <label>City : </label>
                                 <input type="text" onChange={(event) => { setCity(event.target.value) }} required />
                             </div>
-                            <div className="col-3">
+                            <div className="offset-1 col-2">
                                 <label>State : </label>
                                 <input type="text" onChange={(event) => { setState(event.target.value) }} required />
                             </div>
                         </div>
 
                         <div className="row">
-                            <div className="offset-1 col-3">
+                            <div className="offset-1 col-2">
                                 <label>Pin : </label>
                                 <input type="number" onChange={(event) => { setPin(event.target.value) }} required />
                             </div>
-                            <div className="col-3">
+                            <div className="offset-1 col-2">
                                 <label>Phone Number : </label>
                                 <input type="tel" onChange={(event) => { setPhone(event.target.value) }} required />
                             </div>
-                            <div className="col-3">
+                            <div className="offset-1 col-2">
                                 <label>Email : </label>
                                 <input type="email" onChange={(event) => { setEmail(event.target.value) }} required />
                             </div>

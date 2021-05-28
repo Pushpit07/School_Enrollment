@@ -6,10 +6,12 @@ import $ from 'jquery';
 import 'datatables.net';
 
 function Main() {
+    // Initialising states
     const [studentList, setStudentList] = useState([]);
     const [particularStudent, setParticularStudent] = useState([]);
-
     const [newMarks, setNewMarks] = useState('');
+
+    // Functions to call APIs
 
     const getStudents = () => {
         axios.get('http://localhost:3001/students').then((response) => {
@@ -44,7 +46,7 @@ function Main() {
         getStudents();
     }, []);
 
-
+    // Making table better by applying pagination and searching functionalities
     $(document).ready(function () {
         $('#studentTable').dataTable();
     });

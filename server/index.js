@@ -3,9 +3,12 @@ const app = express();
 const mysql = require('mysql');
 const cors = require('cors');
 
+// Using cors
 app.use(cors());
+
 app.use(express.json())
 
+// DB connection initiated
 const db = mysql.createConnection({
     user: 'root',
     host: 'localhost',
@@ -13,6 +16,9 @@ const db = mysql.createConnection({
     database: 'schoolEnrollment'
 });
 
+/******************************     CRUD     ********************************/
+
+// Student Create endpoint
 app.post('/create', (req, res) => {
     console.log(req.body);
     const studentName = req.body.studentName;
@@ -39,6 +45,7 @@ app.post('/create', (req, res) => {
     );
 });
 
+// Get all Students endpoint
 app.get('/students', (req, res) => {
     db.query('SELECT * FROM Students', (err, result) => {
         if (err) {
@@ -49,6 +56,7 @@ app.get('/students', (req, res) => {
     });
 });
 
+// Update Student endpoint
 app.put('/update', (req, res) => {
     const id = req.body.id;
     const marks = req.body.marks;
@@ -62,6 +70,7 @@ app.put('/update', (req, res) => {
     });
 });
 
+// Delete Student endpoint
 app.delete('/delete/:id', (req, res) => {
     const id = req.params.id;
 
@@ -74,6 +83,7 @@ app.delete('/delete/:id', (req, res) => {
     });
 });
 
+// Get Student with particular id endpoint
 app.get('/student/:id', (req, res) => {
     const id = req.params.id;
 

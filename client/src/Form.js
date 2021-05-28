@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import axios from 'axios';
 
 function Form() {
+    // Declaring states
     const [studentName, setStudentName] = useState("");
     const [fatherName, setFatherName] = useState("");
     const [dob, setDOB] = useState("");
@@ -17,10 +18,7 @@ function Form() {
     const [marks, setMarks] = useState("");
     const [enrolledDate, setEnrolledDate] = useState("");
 
-    // const displayInfo = () => {
-    //     console.log(studentName, fatherName, dob, address, city, state, pin, phone, email, classOpted, marks, enrolledDate);
-    // }
-
+    // Calling API to create Student
     const addStudent = () => {
         axios.post('http://localhost:3001/create', {
             studentName: studentName,
